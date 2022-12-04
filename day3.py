@@ -1,8 +1,6 @@
 import os.path
 from string import ascii_lowercase
 
-total = 0
-
 priorities = {}
 for priority, alphabet in enumerate(ascii_lowercase, start=1):
     priorities[alphabet] = priority
@@ -12,6 +10,7 @@ with open(os.path.join('inputs', 'inputDay3.txt')) as f:
     puzzles = list(f.read().split('\n'))
 
 # part 1
+total = 0
 for p in puzzles:
     total += priorities[(''.join(set(p[0:len(p) // 2]).intersection(p[len(p) // 2:])))]
 print(total)
